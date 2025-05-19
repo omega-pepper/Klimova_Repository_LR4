@@ -13,7 +13,20 @@ void inputN() {
 }
 
 void productOfLastNDigits() {
-    // Определить произведение последних N цифр числа X
+   if (X == 0 || N <= 0) {
+        cout << "Сначала введите число X и цифру N.\n";
+        return;
+    }
+    unsigned long long temp = X;
+    int count = 0;
+    unsigned long long product = 1;
+    while (count < N && temp > 0) {
+        int digit = temp % 10;
+        product *= digit;
+        temp /= 10;
+        count++;
+    }
+    cout << "Произведение последних " << N << " цифр числа X: " << product << endl;
 }
 
 void countDigits() {
