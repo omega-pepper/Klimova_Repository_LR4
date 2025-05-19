@@ -8,6 +8,16 @@ void inputX() {
     // Ввести натуральное число X
 }
 
+int getDigitCount(unsigned long long num) {
+    if (num == 0) return 1;
+    int count = 0;
+    while (num > 0) {
+        count++;
+        num /= 10;
+    }
+    return count;
+}
+
 void inputN() {
     // Ввести цифру N (меньше числа разрядов X)
 }
@@ -17,8 +27,13 @@ void productOfLastNDigits() {
 }
 
 void countDigits() {
-    // Определить количество цифр числа X
-}
+if (X == 0) {
+        cout << "Сначала введите число X.\n";
+        return;
+    }
+    int digits = getDigitCount(X);
+    cout << "Количество цифр в числе X: " << digits << endl;
+    }
 
 int main() {
     int choice;
