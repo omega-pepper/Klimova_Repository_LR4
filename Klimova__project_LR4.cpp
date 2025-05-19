@@ -13,8 +13,29 @@ void inputX() {
     }
 }
 
+// Подсчёт количества цифр в числе X
+int getDigitCount(unsigned long long num) {
+    if (num == 0) return 1;
+    int count = 0;
+    while (num > 0) {
+        count++;
+        num /= 10;
+    }
+    return count;
+}
+
 void inputN() {
-    // Ввести цифру N (меньше числа разрядов X)
+   int digits = getDigitCount(X);
+    if (X == 0) {
+        cout << "Сначала введите число X.\n";
+        return;
+    }
+    cout << "Введите N (меньше " << digits << "): ";
+    cin >> N;
+    if (N >= digits || N < 1) {
+        cout << "Ошибка: N должно быть меньше количества цифр X и больше 0.\n";
+        inputN();
+    }
 }
 
 void productOfLastNDigits() {
